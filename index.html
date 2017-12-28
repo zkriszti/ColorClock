@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <meta name="robots" content="noindex">
 <html>
 <head>
@@ -7,71 +6,68 @@
   <meta name="viewport" content="width=device-width">
   <link href="https://fonts.googleapis.com/css?family=Exo:100" rel="stylesheet" type="text/css">
   <title>ColorClock</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+  }
+
+  #clock {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    font-family: 'Exo', sans-serif;
+    font-size: 4em;
+    color: #efefef;
+    padding: 1em;
+    border-radius: 9px;
+    width: 80%;
+    margin: -2em 10% 0 10%;
 
 
-html, body {
-  height: 100%;
-}
-
-#clock {
-  text-align: center;
-  position: relative;
-  top: 50%;
-  font-family: 'Exo', sans-serif;
-  font-size: 4em;
-  color: #efefef;
-  padding: 1em;
-  border-radius: 9px;
-  width: 80%;
-  margin: -2em 10% 0 10%;
-  
-  
-}
-</style>
+  }
+  </style>
 </head>
 <body>
-<div id="clock">12:13:14</div>
-<script>
-function colorClock() {
-var date = new Date();
-var hours = date.getHours();
-var minutes = date.getMinutes();
-var seconds = date.getSeconds();
+  <div id="clock">12:13:14</div>
+  <script>
+  function colorClock() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
 
-/*console.log(hours +':' + minutes +':' + seconds);*/
+    if (seconds < 10) {
+      seconds = '0' + seconds;
+    }
 
-if (seconds < 10) {
-  seconds = '0' + seconds;
-}
+    if (minutes < 10) {
+      minutes = '0' + minutes;
+    }
 
-if (minutes < 10) {
-  minutes = '0' + minutes;
-}
+    if (hours < 10) {
+      hours = '0' + hours;
+    }
 
-if (hours < 10) {
-  hours = '0' + hours;
-}
+    var clockFace= hours +':' + minutes +':' + seconds;
 
-var clockFace= hours +':' + minutes +':' + seconds;
+    document.getElementById('clock').innerHTML = clockFace;
 
-document.getElementById('clock').innerHTML = clockFace;
-  
-setTimeout(function() {
-    colorClock();
-  }, 1000);
+    setTimeout(function() {
+        colorClock();
+      }, 1000);
 
-var hexColor = '#' + hours + minutes + seconds;  
-document.getElementsByTagName('body')[0].style.background = hexColor;  
-  
-var hexColorForClockBg = '#' + seconds + hours + minutes; 
-document.getElementById('clock').style.background = hexColorForClockBg;
-  
-}
+    var hexColor = '#' + hours + minutes + seconds;  
+    document.getElementsByTagName('body')[0].style.background = hexColor;  
 
-colorClock();
+    var hexColorForClockBg = '#' + seconds + hours + minutes; 
+    document.getElementById('clock').style.background = hexColorForClockBg;
 
-</script>
+  }
+
+  colorClock();
+
+  </script>
 </body>
 </html>
