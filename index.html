@@ -4,70 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link href="https://fonts.googleapis.com/css?family=Exo:100" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="colorclock.js">
   <title>ColorClock</title>
-  <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body {
-    height: 100%;
-  }
-
-  #clock {
-    text-align: center;
-    position: relative;
-    top: 50%;
-    font-family: 'Exo', sans-serif;
-    font-size: 4em;
-    color: #efefef;
-    padding: 1em;
-    border-radius: 9px;
-    width: 80%;
-    margin: -2em 10% 0 10%;
-
-
-  }
-  </style>
 </head>
 <body>
-  <div id="clock">12:13:14</div>
-  <script>
-  function colorClock() {
-    var date = new Date();
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
-    var seconds = date.getSeconds();
-
-    if (seconds < 10) {
-      seconds = '0' + seconds;
-    }
-
-    if (minutes < 10) {
-      minutes = '0' + minutes;
-    }
-
-    if (hours < 10) {
-      hours = '0' + hours;
-    }
-
-    var clockFace= hours +':' + minutes +':' + seconds;
-
-    document.getElementById('clock').innerHTML = clockFace;
-
-    setTimeout(function() {
-        colorClock();
-      }, 1000);
-
-    var hexColor = '#' + hours + minutes + seconds;  
-    document.getElementsByTagName('body')[0].style.background = hexColor;  
-
-    var hexColorForClockBg = '#' + seconds + hours + minutes; 
-    document.getElementById('clock').style.background = hexColorForClockBg;
-
-  }
-
-  colorClock();
-
-  </script>
+  <div id='handles-clock'>
+    <div class='handle' id='hours-handle'></div>
+    <div class='handle' id='min-handle'></div>
+    <div class='handle' id='sec-handle'></div>
+    <div class='quarter-markers' id='marker12'></div>
+    <div class='quarter-markers' id='marker3'></div>
+    <div class='quarter-markers' id='marker6'></div>
+    <div class='quarter-markers' id='marker9'></div>
+  </div>
+  <div id='clock'>12:13:14</div>
+  <footer>
+    <script type="text/javascript" src="colorclock.js" />
+  </footer>
 </body>
 </html>

@@ -1,0 +1,62 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+#handles-clock {
+	width: 10rem;
+	height: 10rem;
+	margin: auto; 
+	border: 18px solid #efefef; 
+	border-radius: 50%;
+	display: block;
+	position: relative;
+	margin-top: 30px;
+}
+
+.handle {
+	display: block;
+	position: absolute;
+	top: 50%;
+	width: 50%;
+	background: #efefef;
+	height: 2px;
+	transform-origin: 100%;
+	transition-timing-function: ease-in-out;
+	transition: 0.05s;
+}
+
+.quarter-markers {
+	position: absolute; 
+	top:-12px; 
+	width: 18px; 
+	height: 6px;
+	background: black; 
+	left: calc(50% - 9px); 
+	transform: rotate(-90deg); 
+	display: block; }
+
+#marker3 {top: 50%; transform: rotate(0deg); left: inherit; right: -18px;}
+#marker9 {top: 50%; transform: rotate(0deg); left: -18px;}
+#marker6 {top: inherit; transform: rotate(-90deg); bottom: -12px; left: calc(50% - 9px);}
+
+#hours-handle {
+	margin-left: 10%; 
+	width: 40%;}
+#min-handle {
+	width: 45%; 
+	margin-left: 5%;}
+
+#clock {
+  text-align: center;
+  position: relative;
+  font-family: 'Righteous', sans-serif;
+  font-size: 2.2em;
+  color: #efefef;
+  padding: 1em;
+  border-radius: 9px;
+  width: 80%;
+  margin: 0 auto;
+ }
+ 
+ @media screen and (min-width: 480px) {
+  #clock {font-size: 4em;}
+}
+ 
